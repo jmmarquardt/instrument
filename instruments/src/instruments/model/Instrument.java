@@ -45,9 +45,14 @@ import java.text.DateFormat;
  * 
  */
 public abstract class Instrument {
-	private Category category;
+
+	
+	/** Category: a category of instrument (e.g. HPLC, GC, AA, ICP, UV/VIS) */
+    public enum Category { CHROMATOGRAPHY, MAT_CHAR, INORGANIC, BALANCE, PIPETTE, METER, HOOD, STABILITY_REFRIGERATION, OVENS_FURNACES, DIAGNOSTIC }
+    /** The category of this Instrument. */
+    private Category category;
 	/** manufacturer: the manufacturer of the instrument */
-	private String manufacturer;
+    private String manufacturer;
     /** manufactureDate: the instrument's manufacture date */
     private DateFormat manufactureDate;
     /** model: the manufacturer model number */
@@ -56,34 +61,24 @@ public abstract class Instrument {
     private String serial;
     /** name: an optional name */
     private String name;
-	
-	/** Category: a category of instrument (e.g. HPLC, GC, AA, ICP, UV/VIS) */
-    private enum Category 
-    {
-    	CHROMATOGRAPHY, 
-    	MAT_CHAR, 
-    	INORGANIC, 
-    	BALANCE, 
-    	PIPETTE, 
-    	METER, 
-    	HOOD, 
-    	STABILITY_REFRIGERATION, 
-    	OVENS_FURNACES, 
-    	DIAGNOSTIC
-    }
-
-	/** Instrument(Category, String, DateFormat, String, String) - A constructor 
+	/**
+	 * Instrument(Category, String, DateFormat, String, String) - A constructor
 	 * accepting all fields as parameters to generate a new Instrument object.
 	 * 
-	 * @param category the Instrument category (enum)
-	 * @param manufacturer
-	 * @param manufactureDate
-	 * @param model
-	 * @param serial
-	 * @param name
+	 * @param category the Instrument category (enum).
+	 * @param manufacturer the manufacturer of this instrument (String).
+	 * @param manufactureDate the date this instrument instance was manufactured
+	 *                        (DateFormat).
+	 * @param model the model name or number of this instrument (String).
+	 * @param serial the serial number (String) of this Instrument instance,
+	 *                  which may contain letters, numbers and special
+	 *                  characters but cannot be null or an empty String.
+	 * @param name An optional name identifier for this Instrument instance
+	 *                (String).
 	 */
-	public Instrument(Category category, String manufacturer, DateFormat manufactureDate, String model, String serial,
-			String name) {
+    public Instrument(Category category, String manufacturer,
+					  DateFormat manufactureDate, String model, String serial,
+					  String name) {
 		setCategory(category);
 		setManufacturer(manufacturer);
 		setManufactureDate(manufactureDate);
@@ -93,6 +88,7 @@ public abstract class Instrument {
 	}
 
 	/**
+	 * getCategory() - returns the Category of this Instrument.
 	 * @return the category
 	 */
 	public Category getCategory() {
@@ -100,6 +96,8 @@ public abstract class Instrument {
 	}
 
 	/**
+	 * setCategory(Category) - sets the category field of this Instrument to
+	 * the given Category.
 	 * @param category the category to set
 	 */
 	private void setCategory(Category category) {
@@ -107,6 +105,7 @@ public abstract class Instrument {
 	}
 
 	/**
+	 * getManufacturer - returns the manufacturer of this instrument.
 	 * @return the manufacturer
 	 */
 	public String getManufacturer() {
@@ -114,6 +113,8 @@ public abstract class Instrument {
 	}
 
 	/**
+	 * setManufacturer(String) - sets the manufacturer of this Instrument to
+	 * the given String.
 	 * @param manufacturer the manufacturer to set
 	 */
 	private void setManufacturer(String manufacturer) {
@@ -121,6 +122,8 @@ public abstract class Instrument {
 	}
 
 	/**
+	 * getManufactureDate - returns the manufactureDate of this instrument
+	 * as a formatted DateFormat object.
 	 * @return the manufactureDate
 	 */
 	public DateFormat getManufactureDate() {
@@ -128,6 +131,8 @@ public abstract class Instrument {
 	}
 
 	/**
+	 * setManufactureDate(DateFormat) - sets the manufactureDate of this
+	 * instrument to the given DateFormat object.
 	 * @param manufactureDate the manufactureDate to set
 	 */
 	private void setManufactureDate(DateFormat manufactureDate) {
@@ -135,41 +140,50 @@ public abstract class Instrument {
 	}
 
 	/**
-	 * @return the model
+	 * getModel - returns the model name or number of this Instrument.
+	 * @return the model name or model number of this instrument.
 	 */
 	public String getModel() {
 		return model;
 	}
 
 	/**
-	 * @param model the model to set
+	 * setModel(String) - sets the model name or number of this Instrument to
+	 * the given String.
+	 * @param model the model number or name to set
 	 */
 	private void setModel(String model) {
 		this.model = model;
 	}
 
 	/**
-	 * @return the serial
+	 * getSerial - returns the serial number as a String.
+	 * @return the serial number (String).
 	 */
 	public String getSerial() {
 		return serial;
 	}
 
 	/**
-	 * @param serial the serial to set
+	 * setSerial(String) - used only by the constructor, this method sets the
+	 * serial field value to the given serial number.
+	 * @param serial the serial number to set on construction.
 	 */
 	private void setSerial(String serial) {
 		this.serial = serial;
 	}
 
 	/**
-	 * @return the name
+	 * getName - returns the name (String) if any, of this instrument, otherwise
+	 * it returns an empty String.
+	 * @return the name or an empty String.
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
+	 * setName(String) - sets the name field to the given String.
 	 * @param name the name to set
 	 */
 	public void setName(String name) {

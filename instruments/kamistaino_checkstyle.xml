@@ -74,6 +74,9 @@
       <property name="format" value="TODO:|FIX\s*ME"/>
     </module>
     <module name="UpperEll"/>
-    <module name="Indentation"/>
+    <module name="Indentation">
+      <property name="severity" value="ignore"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+    </module>
   </module>
 </module>
