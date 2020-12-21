@@ -4,7 +4,7 @@
  * Date: 20-DEC-2020
  */
 
-package instruments.model;
+package com.instruments.model;
 
 import java.text.DateFormat;
 
@@ -45,14 +45,10 @@ import java.text.DateFormat;
  * 
  */
 public abstract class Instrument {
-
-	
-	/** Category: a category of instrument (e.g. HPLC, GC, AA, ICP, UV/VIS) */
-    public enum Category { CHROMATOGRAPHY, MAT_CHAR, INORGANIC, BALANCE, PIPETTE, METER, HOOD, STABILITY_REFRIGERATION, OVENS_FURNACES, DIAGNOSTIC }
     /** The category of this Instrument. */
     private Category category;
 	/** manufacturer: the manufacturer of the instrument */
-    private String manufacturer;
+    private Manufacturer manufacturer;
     /** manufactureDate: the instrument's manufacture date */
     private DateFormat manufactureDate;
     /** model: the manufacturer model number */
@@ -61,6 +57,7 @@ public abstract class Instrument {
     private String serial;
     /** name: an optional name */
     private String name;
+    
 	/**
 	 * Instrument(Category, String, DateFormat, String, String) - A constructor
 	 * accepting all fields as parameters to generate a new Instrument object.
@@ -76,7 +73,7 @@ public abstract class Instrument {
 	 * @param name An optional name identifier for this Instrument instance
 	 *                (String).
 	 */
-    public Instrument(Category category, String manufacturer,
+    public Instrument(Category category, Manufacturer manufacturer,
 					  DateFormat manufactureDate, String model, String serial,
 					  String name) {
 		setCategory(category);
@@ -109,7 +106,7 @@ public abstract class Instrument {
 	 * @return the manufacturer
 	 */
 	public String getManufacturer() {
-		return manufacturer;
+		return manufacturer.val;
 	}
 
 	/**
@@ -117,7 +114,7 @@ public abstract class Instrument {
 	 * the given String.
 	 * @param manufacturer the manufacturer to set
 	 */
-	private void setManufacturer(String manufacturer) {
+	private void setManufacturer(Manufacturer manufacturer) {
 		this.manufacturer = manufacturer;
 	}
 
@@ -188,7 +185,5 @@ public abstract class Instrument {
 	 */
 	public void setName(String name) {
 		this.name = name;
-	}
-
-    
+	}  
 }
