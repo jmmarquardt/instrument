@@ -4,7 +4,7 @@
  * Date: 20-DEC-2020
  */
 
-package com.instruments.model;
+package com.instruments.model.instrument;
 
 import java.text.DateFormat;
 

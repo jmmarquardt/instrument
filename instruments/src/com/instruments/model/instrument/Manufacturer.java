@@ -1,4 +1,4 @@
-package com.instruments.model;
+package com.instruments.model.instrument;
 
 /** 
  * Manufacturer - enumeration of Manufacturers of Laboratory Instruments

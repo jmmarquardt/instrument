@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.instruments.model;
+package com.instruments.model.instrument;
 
 import java.text.DateFormat;
 
@@ -26,8 +26,9 @@ public class AA extends Instrument {
 	 */
 	public AA(Category category, Manufacturer manufacturer, DateFormat manufactureDate,
 			String model, String serial, String name) {
+		
 		super(category, manufacturer, manufactureDate, model, serial, name);
-		// TODO Auto-generated constructor stub
+		
 	
 	}
 }

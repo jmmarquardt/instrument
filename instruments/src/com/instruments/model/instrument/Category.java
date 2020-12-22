@@ -3,7 +3,7 @@
  * Written by: John-Michael Marquardt
  * Date: 21-DEC-2020
  */
-package com.instruments.model;
+package com.instruments.model.instrument;
 
 /**
  * Category - A category of an instrument typically found in a chemical
